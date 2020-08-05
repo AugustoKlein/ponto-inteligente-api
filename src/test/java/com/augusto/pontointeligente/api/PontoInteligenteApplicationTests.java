@@ -21,7 +21,7 @@ import java.util.List;
 class PontoInteligenteApplicationTests {
 
 	@Autowired
-	private CompanyRepository repository;
+	private CompanyRepository companyRepository;
 
 //	@Test
 	void testBPCrypt() {
@@ -36,13 +36,13 @@ class PontoInteligenteApplicationTests {
 		company.setCompayName("Empresa de Teste");
 		company.setTaxNumber("1234");
 
-		repository.save(company);
+		companyRepository.save(company);
 	}
 
 	@Test
 	void testRepo(){
-		Company company = repository.findByTaxNumber("1234");
-		List<Company> companies = repository.findAll();
+		Company company = companyRepository.findByTaxNumber("1234");
+		List<Company> companies = companyRepository.findAll();
 		assertEquals("1234",company.getTaxNumber());
 	}
 
