@@ -12,4 +12,6 @@ public interface EmployeeRepository extends JpaRepository<Employee,Long> {
     Employee findByEmail(String email);
 
     Employee findByTaxNumberOrEmail(String taxNumber,String email);
+
+
 }

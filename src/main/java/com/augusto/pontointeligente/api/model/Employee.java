@@ -1,5 +1,7 @@
 package com.augusto.pontointeligente.api.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -7,6 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "employee")
+@Data
 public class Employee {
 
     public enum Perfil{

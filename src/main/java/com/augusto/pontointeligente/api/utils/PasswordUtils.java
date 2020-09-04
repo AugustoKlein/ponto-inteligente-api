@@ -1,20 +1,23 @@
 package com.augusto.pontointeligente.api.utils;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 public class PasswordUtils {
 
-    public static String generateBCrypt(String password){
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
+    public String generateBCrypt(String password){
         if(password == null)
             return null;
 
-        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        return bCryptPasswordEncoder.encode(password);
+        return passwordEncoder.encode(password);
     }
 
-    public static boolean validate(String password,String passwordEncoded){
-        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+    public boolean validate(String password,String passwordEncoded){
 
-        return bCryptPasswordEncoder.matches(password,passwordEncoded);
+        return passwordEncoder.matches(password,passwordEncoded);
     }
+
 }
