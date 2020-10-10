@@ -43,7 +43,7 @@ public class Lancamento {
     private Long employeeId;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "employee_id",referencedColumnName =  "id", foreignKey = @ForeignKey(name = "none", value = ConstraintMode.NO_CONSTRAINT))
+    @JoinColumn(name = "employee_id",referencedColumnName =  "id", foreignKey = @ForeignKey(name = "none", value = ConstraintMode.NO_CONSTRAINT), insertable = false,updatable = false)
     private Employee employee;
 
     @Enumerated(value = EnumType.STRING)
