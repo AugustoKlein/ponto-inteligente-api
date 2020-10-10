@@ -39,7 +39,11 @@ public class Lancamento {
     @Column(name = "updated_date")
     private Date updatedDate;
 
+    @Column(name = "employee_id")
+    private Long employeeId;
+
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "employee_id",referencedColumnName =  "id", foreignKey = @ForeignKey(name = "none", value = ConstraintMode.NO_CONSTRAINT))
     private Employee employee;
 
     @Enumerated(value = EnumType.STRING)

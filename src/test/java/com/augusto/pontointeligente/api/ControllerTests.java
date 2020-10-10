@@ -24,39 +24,38 @@ import static org.mockito.Mockito.when;
 public class ControllerTests {
 
     //TODO:Implementar um cenario de teste com o Mockito
-//    @Mock
-//    EmployeeRepository employeeRepository;
-//
-//    @InjectMocks
-//    EmployeeController employeeController;
-//
-//    MockMvc mockMvc;
-//
-//
-//    @BeforeEach
-//    public void setUp(){
-//        mockMvc = MockMvcBuilders.standaloneSetup(employeeController)
-//                .setControllerAdvice(new GlobalExceptionHandler())
-//                .build();
-//
-//        Employee employee = new Employee();
-//        employee.setTaxNumber("1234");
-//        employee.setPerfil(Employee.Perfil.ROLE_USUARIO);
-//        employeeRepository.save(employee);
-//    }
-//
-//
-//    @Test
-//    public void findByTaxNumber() throws Exception {
-//        String uri = "/api/employee/find/tax-number/1234";
-//
-//        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get(uri)
-//                .accept(MediaType.APPLICATION_JSON_VALUE))
-//                .andReturn();
-//
-//        int status = mvcResult.getResponse().getStatus();
-//
-//        assertEquals(200,status);
-//    }
+    @Mock
+    EmployeeRepository employeeRepository;
+
+    @InjectMocks
+    EmployeeController employeeController;
+
+    MockMvc mockMvc;
+
+
+    @BeforeEach
+    public void setUp(){
+        mockMvc = MockMvcBuilders.standaloneSetup(employeeController)
+                .setControllerAdvice(new GlobalExceptionHandler())
+                .build();
+
+        Employee employee = new Employee();
+        employee.setTaxNumber("1234");
+        employee.setPerfil(Employee.Perfil.ROLE_USUARIO);
+        employeeRepository.save(employee);
+    }
+
+
+    @Test
+    public void findByTaxNumber() throws Exception {
+        String uri = "/api/employee/find/tax-number/1234";
+
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get(uri)
+                .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andReturn();
+
+        int status = mvcResult.getResponse().getStatus();
+
+        assertEquals(200,status);
+    }
 }
-//@SpringBootTest
